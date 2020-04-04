@@ -38,6 +38,9 @@
 {
     <script>
         $(document).ready(function () {
+            $("#customers").DataTable();
+
+
             //for all classes ".js-delete" inside "#customers"
             $("#customers").on("click", ".js-delete" , function() {
                 var button = $(this);
