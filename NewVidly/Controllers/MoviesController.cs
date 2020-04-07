@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using NewVidly.Models;
 using NewVidly.ViewModel;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 
 
 namespace NewVidly.Controllers
@@ -24,6 +25,7 @@ namespace NewVidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var viewModel = new MovieFormViewModel()
@@ -104,7 +106,14 @@ namespace NewVidly.Controllers
         //movies
         public ActionResult Index()
         {
-            return View(_context.Movies.Include(c => c.Genre).ToList());
+            if (User.IsInRole(RoleName.CanManageMovies))
+            {
+                return View("List");
+            }
+            else
+            {
+                return View("ListReadOnly");
+            }
         }
 
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
