@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace NewVidly.Controllers
 {
+    [Authorize(Roles = RoleName.CanManageMovies)]
     public class MoviesController : Controller
     {
         private ApplicationDbContext _context;
@@ -25,7 +26,6 @@ namespace NewVidly.Controllers
             _context.Dispose();
         }
 
-        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var viewModel = new MovieFormViewModel()
