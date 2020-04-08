@@ -27,5 +27,7 @@ namespace NewVidly.Dtos
         [Range(1, 20)]
         public int NumberInStock { get; set; }
 
+        public byte NumberAvailable { get; set; }
+
     }
 }

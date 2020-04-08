@@ -20,9 +20,12 @@ namespace NewVidly.Models
         [Display(Name = "Date Added")]
         public DateTime? DateAdded { get; set; }
         
-        [Display(Name = "Number in stock")]
+        [Display(Name = "Total in stock")]
         [Range(1,20)]
         public int NumberInStock { get; set; }
+
+        [Display(Name = "Available now")]
+        public byte NumberAvailable { get; set; }
 
         public Genre Genre { get; set; }
 

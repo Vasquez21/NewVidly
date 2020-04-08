@@ -16,6 +16,8 @@ namespace NewVidly.App_Start
             Mapper.CreateMap<CustomerDto, Customer>();
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>();
+            Mapper.CreateMap<Rental, RentalDto>();
+            Mapper.CreateMap<RentalDto, Rental>();
 
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
             Mapper.CreateMap<Genre, GenreDto>();
